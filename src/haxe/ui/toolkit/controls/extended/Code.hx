@@ -19,8 +19,9 @@ class Code extends TextInput {
 		super();
 		multiline = true;
 		wrapLines = false;
-		var tf:TextField = cast(_textDisplay.display, TextField);
 		#if flash
+			var tf:TextField = cast(_textDisplay.display, TextField);
+			tf.tabEnabled = false;
 			tf.alwaysShowSelection = true;
 		#end
 		_syntax = CodeSyntax.getSyntax("");

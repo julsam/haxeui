@@ -15,9 +15,10 @@ class RTF extends TextInput {
 	public function new() {
 		super();
 		multiline = true;
-		var tf:TextField = cast(_textDisplay.display, TextField);
 		#if flash
-		tf.alwaysShowSelection = true;
+			var tf:TextField = cast(_textDisplay.display, TextField);
+			tf.tabEnabled = false;
+			tf.alwaysShowSelection = true;
 		#end
 	}
 	

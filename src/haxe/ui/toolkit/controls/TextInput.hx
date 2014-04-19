@@ -22,6 +22,8 @@ class TextInput extends StateComponent implements IClonable<TextInput> {
 	private var _vscroll:VScroll;
 	private var _hscroll:HScroll;
 	
+	private static var _tabIndexCounter:Int = 0;
+	
 	public function new() {
 		super();
 		addStates([State.NORMAL, State.DISABLED]);
@@ -29,6 +31,10 @@ class TextInput extends StateComponent implements IClonable<TextInput> {
 		_textDisplay = new TextDisplay();
 		_textDisplay.interactive = true;
 		_textDisplay.text = "";
+		#if flash
+			var tf:TextField = cast(_textDisplay.display, TextField);
+			tf.tabIndex = _tabIndexCounter++;
+		#end
 	}
 	
 	//******************************************************************************************

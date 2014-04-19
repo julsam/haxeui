@@ -49,7 +49,10 @@ class DisplayObject implements IEventDispatcher implements IDisplayObject implem
 	public function new() {
 		_sprite = new Sprite();
 		//_sprite.cacheAsBitmap = true;
-		_sprite.tabChildren = false;
+		#if flash
+			_sprite.tabChildren = true;
+			_sprite.tabEnabled = false;
+		#end
 		addEventListener(Event.ADDED_TO_STAGE, _onAddedToStage, false, 100);
 	}
 
